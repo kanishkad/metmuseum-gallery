@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { RouterModule } from "@angular/router";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  standalone: true,
+  selector: "app-root",
+  template: `
+    <router-outlet></router-outlet>
+  `,
+  styles: [],
+  imports: [RouterModule],
 })
-export class AppComponent {
-  title = 'metmuseum-gallery';
-}
+export class AppComponent {}
