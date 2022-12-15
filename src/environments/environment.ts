@@ -9,5 +9,5 @@ export const environment = {
   searchEndpoint: 'https://collectionapi.metmuseum.org/public/collection/v1/search',
   metadataDate: '2022-11-20',
   departmentsSliceLimit: 2,
-  objectsSliceLimit: 3
+  objectsSliceLimit: 5
 };

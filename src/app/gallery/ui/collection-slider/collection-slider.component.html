@@ -1,3 +1,12 @@
 <h1>{{department.displayName}}</h1>
 <h5>{{totalArtefacts}} Artefacts</h5>
-<app-artefact-card-container *ngFor="let artefactId of artefactIds$ | async" [artefactId]="artefactId"></app-artefact-card-container>
+
+<ng-container *ngIf="!(loading$ | async)">
+  <ngx-glide #ngxGlide [showArrows]="true" [perView]="3">
+    <ng-container *ngFor="let artefact of artefacts">
+      <app-artefact-card [artefact]="artefact"></app-artefact-card>
+    </ng-container>
+  </ngx-glide>
+</ng-container>
+
+
