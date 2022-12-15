@@ -4,3 +4,38 @@
 
 @import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
 @import 'node_modules/@glidejs/glide/src/assets/sass/glide.theme';
+
+
+@font-face {
+  font-family: 'MetSans';
+  src: url('assets/fonts/TheMetSans/TheMetSans-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MetSans';
+  src: url('assets/fonts/TheMetSans/TheMetSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MetSans';
+  src: url('assets/fonts/TheMetSans/TheMetSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MetSans';
+  src: url('assets/fonts/TheMetSans/TheMetSans-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+html {
+  font-family: 'MetSans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
