@@ -7,5 +7,7 @@ export const environment = {
   departmentsEndpoint: 'https://collectionapi.metmuseum.org/public/collection/v1/departments',
   objectsEndpoint: 'https://collectionapi.metmuseum.org/public/collection/v1/objects',
   searchEndpoint: 'https://collectionapi.metmuseum.org/public/collection/v1/search',
-  sliceLimit: 10
+  metadataDate: '2022-11-20',
+  departmentsSliceLimit: 2,
+  objectsSliceLimit: 3
 };
