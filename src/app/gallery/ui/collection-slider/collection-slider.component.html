@@ -1,0 +1,3 @@
+<h1>{{department.displayName}}</h1>
+<h5>{{totalArtefacts}} Artefacts</h5>
+<app-artefact-card-container *ngFor="let artefactId of artefactIds$ | async" [artefactId]="artefactId"></app-artefact-card-container>
