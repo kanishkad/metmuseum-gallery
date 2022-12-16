@@ -1,8 +1,8 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Department } from "../../../interfaces/Department";
 import { ObjectService } from "../../data-access/object.service";
-import { BehaviorSubject, forkJoin, map, mergeMap, tap } from "rxjs";
+import { BehaviorSubject, forkJoin, map, mergeMap, Subscription, tap } from "rxjs";
 import { environment } from "../../../../environments/environment";
 import { NgxGlideComponent, NgxGlideModule } from "ngx-glide";
 import { Artefact } from "../../../interfaces/Artefact";
@@ -15,7 +15,7 @@ import { CollectionSliderComponent } from "../../ui/collection-slider/collection
   templateUrl: './collection-slider-container.component.html',
   styleUrls: ['./collection-slider-container.component.scss']
 })
-export class CollectionSliderContainerComponent implements OnInit {
+export class CollectionSliderContainerComponent implements OnInit, OnDestroy {
   @Input() department!: Department;
 
   @ViewChild('ngxGlide') ngxGlide!: NgxGlideComponent;
@@ -24,12 +24,13 @@ export class CollectionSliderContainerComponent implements OnInit {
   isLoading$ = new BehaviorSubject<boolean>(true);
 
   artefacts!: Artefact[];
+  objectsSub!: Subscription;
 
   constructor(private objectService: ObjectService) {
   }
 
   ngOnInit(): void {
-    this.objectService.getObjectsByDepartment(this.department.departmentId)
+    this.objectsSub = this.objectService.getObjectsByDepartment(this.department.departmentId)
       .pipe(
         // Get the number of total artefacts out
         tap((objRes: any) => this.totalArtefacts$.next(objRes.total)),
@@ -48,5 +49,9 @@ export class CollectionSliderContainerComponent implements OnInit {
       // Remove artefacts without images
       this.artefacts = artefacts.filter((artefact: Artefact) => artefact.primaryImageSmall !== null && artefact.primaryImageSmall !== '');
     });
+  }
+
+  ngOnDestroy(): void {
+    this.objectsSub.unsubscribe();
   }
 }
