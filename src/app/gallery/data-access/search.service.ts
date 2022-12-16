@@ -17,4 +17,12 @@ export class SearchService {
 
     return this.httpClient.get(environment.searchEndpoint, {params});
   }
+
+  searchObjects(searchString: string) {
+    const params = new HttpParams()
+      .set('q', searchString)
+      .set('hasImages', true);
+
+    return this.httpClient.get(environment.searchEndpoint, {params});
+  }
 }

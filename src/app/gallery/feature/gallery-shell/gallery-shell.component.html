@@ -1,0 +1,6 @@
+<app-gallery-search-results
+  *ngIf="isShowSearch$ | async"
+  [artefacts]="searchRes"
+  (searchClosed)="closeSearch()"></app-gallery-search-results>
+
+<app-gallery-overview [hidden]="isShowSearch$ | async"></app-gallery-overview>
