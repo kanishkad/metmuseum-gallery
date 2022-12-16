@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Department } from "../../../interfaces/Department";
 import { ObjectService } from "../../data-access/object.service";
@@ -6,6 +6,7 @@ import { BehaviorSubject, forkJoin, map, mergeMap, tap } from "rxjs";
 import { environment } from "../../../../environments/environment";
 import { NgxGlideComponent, NgxGlideModule } from "ngx-glide";
 import { ArtefactCardComponent } from "../artefact-card/artefact-card.component";
+import { Artefact } from "../../../interfaces/Artefact";
 
 @Component({
   selector: 'app-collection-slider',
@@ -14,16 +15,17 @@ import { ArtefactCardComponent } from "../artefact-card/artefact-card.component"
   templateUrl: './collection-slider.component.html',
   styleUrls: ['./collection-slider.component.scss']
 })
-export class CollectionSliderComponent implements OnInit, AfterViewInit {
+export class CollectionSliderComponent implements OnInit {
   @Input() department!: Department;
 
+  @ViewChild('ngxGlide') ngxGlide!: NgxGlideComponent;
+
   totalArtefacts: number = 0;
-  artefacts: any;
+  artefacts: Artefact[] | undefined;
   loading$ = new BehaviorSubject<boolean>(true);
+
   constructor(private objectService: ObjectService) {
   }
-
-  @ViewChild('ngxGlide') ngxGlide!: NgxGlideComponent;
 
   ngOnInit(): void {
     this.objectService.getObjectsByDepartment(this.department.departmentId)
@@ -41,21 +43,9 @@ export class CollectionSliderComponent implements OnInit, AfterViewInit {
 
         // Need to subscribe here instead of using with the async pipe in the template
         // because ngx-glide doesn't play nice with ngFor
-      ).subscribe((artefacts: Object[]) => {
+      ).subscribe((artefacts: Artefact[]) => {
       // Remove artefacts without images
-      this.artefacts = artefacts.filter((artefact: any) => artefact.primaryImageSmall !== null && artefact.primaryImageSmall !== '');
+      this.artefacts = artefacts.filter((artefact: Artefact) => artefact.primaryImageSmall !== null && artefact.primaryImageSmall !== '');
     });
   }
-
-  ngAfterViewInit(): void {
-    // this.updateSlider();
-  }
-
-  updateSlider(): void {
-    if (this.ngxGlide) {
-      this.ngxGlide.recreate();
-    }
-  }
-
-
 }
