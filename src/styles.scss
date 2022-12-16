@@ -39,3 +39,15 @@ html {
   font-style: normal;
   font-weight: normal;
 }
+
+.collection-slider-container .glide__slides {
+  height: 430px;
+}
+
+.collection-slider-container .glide__bullet {
+  background-color: #e0e0e0;
+}
+
+.collection-slider-container .glide__bullet--active {
+  background-color: rgb(0 0 0 / 54%);
+}

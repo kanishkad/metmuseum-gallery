@@ -1,11 +1,13 @@
-<div class="artefact-container flex flex-col w-[200px] h-[200px]">
-  <figure class="aspect-[3/2] m-0 box-content">
-    <img class="overflow-hidden min-w-full w-full object-cover"
-         src="{{artefact?.primaryImageSmall}}"
-         alt="{{artefact?.title}}">
-  </figure>
-  <div class="artefact-info">
-    <h4>{{artefact?.title}}</h4>
-    <p>{{artefact?.culture}}</p>
-  </div>
+<div class="artefact-container">
+    <mat-card class="hover:shadow-lg transition-shadow">
+      <img mat-card-image
+           class="object-cover  h-[250px]"
+           src="{{artefact.primaryImageSmall}}" alt="{{artefact.title}}">
+      <mat-card-content>
+        <div class="artefact-info cursor-pointer "(click)="navigateToMuseum()">
+          <h4>{{artefact.title}}</h4>
+          <p>{{artefact.culture}}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
 </div>
