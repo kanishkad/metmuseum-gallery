@@ -3,6 +3,8 @@
 A simple Angular application which showcases artefacts from the Metropolitan Museum of Art.
 This is powered by The Metropolitan Museum of Art Collection API.
 
+The project uses Angular 15 & makes use of Standalone Components. This choice was purely based on preference as I just wanted to try it out.
+
 ## Demo
 A demo is available at: [metmuseum.kanishka.io](https://metmuseum.kanishka.io)
 
