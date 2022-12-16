@@ -1,2 +1,5 @@
-<app-collection-slider *ngFor="let department of departments$ | async" [department]="department"></app-collection-slider>
+<app-collection-slider-container
+  *ngFor="let department of departments$ | async"
+  [department]="department">
+</app-collection-slider-container>
 

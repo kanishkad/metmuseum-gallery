@@ -10,12 +10,9 @@ import { MatCardModule } from "@angular/material/card";
   templateUrl: './artefact-card.component.html',
   styleUrls: ['./artefact-card.component.scss']
 })
-export class ArtefactCardComponent implements OnInit {
+export class ArtefactCardComponent {
 
 @Input() artefact!: Artefact;
-
-  ngOnInit(): void {
-  }
 
   navigateToMuseum() {
     window.open(this.artefact.objectURL, '_blank');
