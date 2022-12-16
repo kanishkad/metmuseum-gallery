@@ -1,6 +1,14 @@
-<button mat-raised-button (click)="closeSearch()">Close Search</button>
+<button mat-raised-button
+        (click)="closeSearch()"
+        class="mb-5">
+  Close search
+</button>
 
-<app-artefact-card
-  *ngFor="let artefact of artefacts"
-  [artefact]="artefact">
-</app-artefact-card>
+<div class="grid grid-cols-3 gap-4">
+  <app-artefact-card
+    *ngFor="let artefact of artefacts"
+    [artefact]="artefact">
+  </app-artefact-card>
+</div>
+
+
