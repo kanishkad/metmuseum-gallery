@@ -4,9 +4,10 @@
            class="object-cover  h-[250px]"
            src="{{artefact.primaryImageSmall}}" alt="{{artefact.title}}">
       <mat-card-content>
-        <div class="artefact-info cursor-pointer" (click)="navigateToMuseum()">
-          <h4>{{artefact.title}}</h4>
-          <p>{{artefact.culture}}</p>
+        <div class="artefact-info cursor-pointer mt-3" (click)="navigateToMuseum()">
+          <h3>{{artefact.title}}</h3>
+          <h4>{{artefact.artistDisplayName}}</h4>
+          <p>{{artefact.objectDate}}</p>
         </div>
       </mat-card-content>
     </mat-card>
