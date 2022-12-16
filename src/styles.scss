@@ -1,4 +1,4 @@
-@tailwind base;
+//@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -40,6 +40,11 @@ html {
   font-weight: normal;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .collection-slider-container {
   .glide__slides {
     height: 430px;
@@ -53,3 +58,5 @@ html {
     background-color: rgb(0 0 0 / 54%);
   }
 }
+
+
