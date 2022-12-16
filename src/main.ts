@@ -2,6 +2,8 @@ import { provideRouter, Route } from "@angular/router";
 import { bootstrapApplication } from "@angular/platform-browser";
 import { AppComponent } from "./app/app.component";
 import { provideHttpClient } from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { importProvidersFrom } from '@angular/core';
 
 const appRoutes: Route[] = [
   {
@@ -11,6 +13,6 @@ const appRoutes: Route[] = [
   },
 ];
 
-bootstrapApplication(AppComponent, { providers: [provideRouter(appRoutes), provideHttpClient()] }).catch((err) =>
+bootstrapApplication(AppComponent, { providers: [provideRouter(appRoutes), provideHttpClient(), importProvidersFrom(BrowserAnimationsModule)] }).catch((err) =>
   console.log(err)
 );
