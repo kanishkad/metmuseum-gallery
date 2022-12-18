@@ -22,6 +22,9 @@ $metMuseum-gallery-theme: mat.define-light-theme((
 @tailwind components;
 @tailwind utilities;
 
+// Angular material overrides
+@import "src/app/shared/ui/search/search-am-overrides";
+
 @font-face {
   font-family: 'MetSans';
   src: url('assets/fonts/TheMetSans/TheMetSans-Light.woff2') format('woff2');
