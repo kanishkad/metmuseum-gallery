@@ -6,7 +6,7 @@
 
   <div class="artefact-slider-{{department.departmentId}} pl-5 pr-5">
       <app-artefact-card
-        *ngFor="let artefact of (artefacts$ | async)"
+        *ngFor="let artefact of artefacts"
         [artefact]="artefact">
       </app-artefact-card>
   </div>
