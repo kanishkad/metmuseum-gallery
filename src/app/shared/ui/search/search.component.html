@@ -2,7 +2,7 @@
   <mat-form-field appearance="outline">
     <mat-label>{{label}}</mat-label>
     <input matInput type="text" [formControl]="searchControl">
-    <button *ngIf="hasValue$ | async" matSuffix mat-icon-button aria-label="Clear" (click)="searchControl.setValue('')">
+    <button *ngIf="hasValue$ | async" matSuffix mat-icon-button aria-label="Clear" (click)="onClose()">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>

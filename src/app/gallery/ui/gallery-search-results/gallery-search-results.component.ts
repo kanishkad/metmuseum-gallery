@@ -14,9 +14,4 @@ import { MatButtonModule } from "@angular/material/button";
 export class GallerySearchResultsComponent {
 
   @Input() artefacts!: Artefact[] | null;
-  @Output() searchClosed: EventEmitter<string> = new EventEmitter();
-
-  closeSearch() {
-    this.searchClosed.emit();
-  }
 }

@@ -20,6 +20,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   @Input() debounceTime!: number;
 
   @Output() searchString: EventEmitter<string> = new EventEmitter();
+  @Output() searchClosed: EventEmitter<boolean> = new EventEmitter();
 
   hasValue$ = new BehaviorSubject<boolean>(false);
 
@@ -41,5 +42,10 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.searchSub.unsubscribe();
+  }
+
+  onClose() {
+    this.searchControl.setValue('');
+    this.searchClosed.emit(true);
   }
 }

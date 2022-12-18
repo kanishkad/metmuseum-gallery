@@ -17,7 +17,7 @@ export class GalleryShellComponent implements OnInit{
 
   constructor(private galleryDataService: GalleryDataService) {
   }
-  
+
   isShowSearch$ = new BehaviorSubject<boolean>(false);
 
   searchRes!: Artefact[];
@@ -28,11 +28,9 @@ export class GalleryShellComponent implements OnInit{
         this.searchRes = artefacts;
         this.isShowSearch$.next(true);
       }
-
     });
-  }
 
-  closeSearch() {
-    this.isShowSearch$.next(false);
+    // Hide search view on search close
+    this.galleryDataService.searchClosed$.subscribe( (isClosed: boolean) => this.isShowSearch$.next(!isClosed));
   }
 }
