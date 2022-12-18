@@ -1,10 +1,6 @@
-//@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
-@import 'node_modules/@glidejs/glide/src/assets/sass/glide.theme';
-
 
 @font-face {
   font-family: 'MetSans';
@@ -34,29 +30,26 @@
   font-style: normal;
 }
 
-html {
-  font-family: 'MetSans', sans-serif;
-  font-style: normal;
-  font-weight: normal;
+html, body {
+  height: 100%;
 }
 
 body {
   margin: 0;
-  padding: 0;
+  font-family: 'MetSans', sans-serif;
 }
 
-.collection-slider-container {
-  .glide__slides {
-    height: 430px;
-  }
-
-  .glide__bullet {
-    background-color: #e0e0e0;
-  }
-
-  .glide__bullet--active {
-    background-color: rgb(0 0 0 / 54%);
-  }
+// Flickity prev next button styling
+.flickity-prev-next-button.previous {
+  left: -5px;
 }
 
+.flickity-prev-next-button.next {
+  right: -25px;
+}
+
+.flickity-button {
+  background: #fff;
+  cursor: pointer;
+}
 
