@@ -18,7 +18,7 @@ export class CollectionSliderComponent implements OnInit, OnDestroy {
 
   @Input() department!: Department;
 
-  @Input() artefacts$!: Observable<Artefact[]>;
+  @Input() artefacts!: Artefact[];
   @Input() totalArtefacts$!: BehaviorSubject<number>;
   @Input() isLoading$!: BehaviorSubject<boolean>;
 
