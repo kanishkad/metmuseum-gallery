@@ -1,22 +1,13 @@
-<div class="collection-slider-container min-h-[550px]">
+<div class="collection-slider-container min-h-[700px]">
   <div class="collection-info font-medium mb-8">
     <h1 class="text-3xl">{{department.displayName}}</h1>
     <h5 class="text-lg">{{totalArtefacts$ | async}} Artefacts</h5>
   </div>
 
-  <ng-container *ngIf="!(isLoading$ | async)">
-    <ngx-glide #ngxGlide
-               [showArrows]="true"
-               [perView]="3"
-               [gap]="60"
-               [rewind]="false"
-               [arrowLeftLabel]="'<'"
-               [arrowRightLabel]="'>'">
-
+  <div class="artefact-slider-{{department.departmentId}}">
       <app-artefact-card
-        *ngFor="let artefact of artefacts"
+        *ngFor="let artefact of (artefacts$ | async)"
         [artefact]="artefact">
       </app-artefact-card>
-    </ngx-glide>
-  </ng-container>
+  </div>
 </div>

@@ -15,8 +15,7 @@ A demo is available at: [metmuseum.kanishka.io](https://metmuseum.kanishka.io)
 
 ## Setup
 - Download or clone the repository
-- Run `yarn install`
-  (NPM throws a dependency resolution error due to Angular version incompatibility with a dependency. Until that's sorted out, please use Yarn)
+- Run `npm install` or `yarn install`
 - Run `ng serve` & the app will be available at http://localhost:4200/
 
 ## Configuration

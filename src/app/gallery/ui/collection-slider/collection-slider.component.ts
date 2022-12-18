@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Department } from "../../../interfaces/Department";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { ArtefactCardComponent } from "../artefact-card/artefact-card.component";
 import { Artefact } from "../../../interfaces/Artefact";
 
@@ -17,8 +17,8 @@ declare const Flickity: any;
 export class CollectionSliderComponent implements OnInit {
 
   @Input() department!: Department;
-  @Input() artefacts!: Artefact[];
 
+  @Input() artefacts$!: Observable<Artefact[]>;
   @Input() totalArtefacts$!: BehaviorSubject<number>;
   @Input() isLoading$!: BehaviorSubject<boolean>;
 
