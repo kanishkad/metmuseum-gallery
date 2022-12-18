@@ -10,6 +10,11 @@ import { GalleryShellComponent } from "./app/gallery/feature/gallery-shell/galle
 const appRoutes: Routes = [
   {
     path: "",
+    redirectTo: "gallery",
+    pathMatch: "full",
+  },
+  {
+    path: "",
     component: BaseLayoutComponent,
     children: [
       {
@@ -17,11 +22,6 @@ const appRoutes: Routes = [
         component: GalleryShellComponent
       }
     ]
-  },
-  {
-    path: "",
-    redirectTo: "gallery",
-    pathMatch: "full",
   }
 ];
 
