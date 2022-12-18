@@ -5,7 +5,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
-import { BehaviorSubject, debounceTime, distinctUntilChanged, filter, Observable, Subscription, tap } from "rxjs";
+import { BehaviorSubject, debounceTime, distinctUntilChanged, filter, Subscription, tap } from "rxjs";
 
 @Component({
   selector: 'app-search',
