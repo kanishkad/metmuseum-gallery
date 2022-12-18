@@ -1,0 +1,18 @@
+.hero-text {
+  font-family: "Times New Roman", serif;
+}
+
+.visit-btn {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 13px 46px;
+  border-radius: 4px;
+  transition: background-position .3s,color .3s;
+}
+
+.visit-btn:hover {
+  background: hsla(0,0%,100%,.9);
+  border-color: #f2f2f2;
+  color: #64696b;
+}

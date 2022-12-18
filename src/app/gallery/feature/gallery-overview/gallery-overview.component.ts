@@ -5,11 +5,12 @@ import { Observable } from "rxjs";
 import {
   CollectionSliderContainerComponent
 } from "../collection-slider-container/collection-slider-container.component";
+import { HeroComponent } from "../../ui/hero/hero.component";
 
 @Component({
   selector: 'app-gallery-overview',
   standalone: true,
-    imports: [CommonModule, CollectionSliderContainerComponent],
+    imports: [CommonModule, CollectionSliderContainerComponent, HeroComponent],
   templateUrl: './gallery-overview.component.html',
   styleUrls: ['./gallery-overview.component.scss']
 })
