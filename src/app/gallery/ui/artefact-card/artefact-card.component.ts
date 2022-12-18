@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { Artefact } from "../../../interfaces/Artefact";
 import { MatCardModule } from "@angular/material/card";
@@ -13,8 +13,4 @@ import { MatCardModule } from "@angular/material/card";
 export class ArtefactCardComponent {
 
 @Input() artefact!: Artefact;
-
-  navigateToMuseum() {
-    window.open(this.artefact.objectURL, '_blank');
-  }
 }
