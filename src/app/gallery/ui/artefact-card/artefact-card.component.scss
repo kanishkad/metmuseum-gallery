@@ -1,4 +1,8 @@
-h3, h4, p {
-  margin-block-start: 0;
-  margin-block-end: 0;
+.artefact-container {
+  border-left: calc(16px + 0.5vw) solid transparent;
+  box-sizing: content-box;
+  flex-shrink: 0;
+  max-width: 85vw;
+  width: 600px;
+  height: 400px;
 }

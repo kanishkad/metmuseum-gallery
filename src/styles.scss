@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
-@import 'node_modules/@glidejs/glide/src/assets/sass/glide.theme';
-
-
 @font-face {
   font-family: 'MetSans';
   src: url('assets/fonts/TheMetSans/TheMetSans-Light.woff2') format('woff2');
