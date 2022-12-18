@@ -1,10 +1,10 @@
 <div class="artefact-container">
-    <mat-card class="hover:shadow-lg transition-shadow">
+    <mat-card class="shadow-md hover:shadow-lg transition-shadow duration-200 ease-in">
       <img mat-card-image
-           class="object-cover h-[250px]"
+           class="h-[20rem] object-cover hover:brightness-90 transition-all duration-200 ease-in"
            src="{{artefact.primaryImageSmall}}" alt="{{artefact.title}}">
       <mat-card-content>
-        <div class="artefact-info cursor-pointer mt-3 overflow-hidden"
+        <div class="artefact-info h-[5rem] cursor-pointer mt-3 overflow-hidden"
              (click)="navigateToMuseum()">
           <h3 class="font-medium text-xl">{{artefact.title}}</h3>
           <p>{{artefact.artistDisplayName}}</p>

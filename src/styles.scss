@@ -39,5 +39,17 @@ body {
   font-family: 'MetSans', sans-serif;
 }
 
+// Flickity prev next button styling
+.flickity-prev-next-button.previous {
+  left: -5px;
+}
 
+.flickity-prev-next-button.next {
+  right: -25px;
+}
+
+.flickity-button {
+  background: #fff;
+  cursor: pointer;
+}
 

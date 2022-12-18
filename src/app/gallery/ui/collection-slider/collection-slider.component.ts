@@ -41,7 +41,8 @@ export class CollectionSliderComponent implements OnInit {
       new Flickity( artefactSlider, {
         imagesLoaded: true,
         percentPosition: false,
-        contain: true
+        contain: true,
+        setGallerySize: false
       });
     }
   }
