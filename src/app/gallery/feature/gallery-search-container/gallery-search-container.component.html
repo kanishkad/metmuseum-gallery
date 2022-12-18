@@ -1,4 +1,5 @@
 <app-search [label]="'Search artwork'"
             [debounceTime]="debounceTime"
-            (searchString)="onSearch($event)">
+            (searchString)="onSearch($event)"
+            (searchClosed)="onSearchClose($event)">
 </app-search>

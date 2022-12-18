@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Department } from "../../../interfaces/Department";
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Observable, Subscription } from "rxjs";
 import { ArtefactCardComponent } from "../artefact-card/artefact-card.component";
 import { Artefact } from "../../../interfaces/Artefact";
 
@@ -14,7 +14,7 @@ declare const Flickity: any;
   templateUrl: './collection-slider.component.html',
   styleUrls: ['./collection-slider.component.scss']
 })
-export class CollectionSliderComponent implements OnInit {
+export class CollectionSliderComponent implements OnInit, OnDestroy {
 
   @Input() department!: Department;
 
@@ -22,8 +22,10 @@ export class CollectionSliderComponent implements OnInit {
   @Input() totalArtefacts$!: BehaviorSubject<number>;
   @Input() isLoading$!: BehaviorSubject<boolean>;
 
+  private isLoadingSub!: Subscription;
+
   ngOnInit(): void {
-    this.isLoading$.subscribe(isLoading => {
+    this.isLoadingSub = this.isLoading$.subscribe(isLoading => {
       if (!isLoading) {
         setTimeout(()=>{
           // Flickity should be initialized after template is rendered because of ngFor loop
@@ -32,6 +34,10 @@ export class CollectionSliderComponent implements OnInit {
         })
       }
     })
+  }
+
+  ngOnDestroy(): void {
+    this.isLoadingSub.unsubscribe();
   }
 
   initializeFlickity() {

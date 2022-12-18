@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GalleryOverviewComponent } from "../gallery-overview/gallery-overview.component";
 import { GallerySearchResultsComponent } from "../../ui/gallery-search-results/gallery-search-results.component";
 import { GalleryDataService } from "../../data-access/gallery-data.service";
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Subscription } from "rxjs";
 import { Artefact } from "../../../interfaces/Artefact";
 
 @Component({
@@ -13,26 +13,33 @@ import { Artefact } from "../../../interfaces/Artefact";
   templateUrl: './gallery-shell.component.html',
   styleUrls: ['./gallery-shell.component.scss']
 })
-export class GalleryShellComponent implements OnInit{
+export class GalleryShellComponent implements OnInit, OnDestroy{
 
   constructor(private galleryDataService: GalleryDataService) {
   }
-  
+
+  private searchResSub!: Subscription;
+  private searchClosedSub!: Subscription;
+
   isShowSearch$ = new BehaviorSubject<boolean>(false);
 
   searchRes!: Artefact[];
 
   ngOnInit(): void {
-    this.galleryDataService.searchRes$.subscribe((artefacts: Artefact[]) => {
+    this.searchResSub = this.galleryDataService.searchRes$.subscribe((artefacts: Artefact[]) => {
       if (artefacts.length > 0) {
         this.searchRes = artefacts;
         this.isShowSearch$.next(true);
       }
-
     });
+
+    // Hide search view on search close
+    this.searchClosedSub = this.galleryDataService.searchClosed$.subscribe( (isClosed: boolean) => this.isShowSearch$.next(!isClosed));
   }
 
-  closeSearch() {
-    this.isShowSearch$.next(false);
+  ngOnDestroy(): void {
+    this.searchResSub.unsubscribe();
+    this.searchClosedSub.unsubscribe();
   }
 }
+

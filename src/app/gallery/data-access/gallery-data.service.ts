@@ -7,12 +7,19 @@ import { Artefact } from "../../interfaces/Artefact";
 })
 export class GalleryDataService {
 
-  private searchArtefacts$ = new BehaviorSubject<Artefact[]>([]);
-  searchRes$ = this.searchArtefacts$.asObservable();
+  private searchArtefactsSub = new BehaviorSubject<Artefact[]>([]);
+  searchRes$ = this.searchArtefactsSub.asObservable();
+
+  private searchClosedSub = new BehaviorSubject<boolean>(true);
+  searchClosed$ = this.searchClosedSub.asObservable();
 
   constructor() { }
 
   setSearchRes(searchRes: Artefact[]) {
-    this.searchArtefacts$.next(searchRes);
+    this.searchArtefactsSub.next(searchRes);
+  }
+
+  setSearchClosed(isClosed: boolean) {
+    this.searchClosedSub.next(isClosed);
   }
 }

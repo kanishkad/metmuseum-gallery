@@ -49,4 +49,7 @@ export class GallerySearchContainerComponent implements OnDestroy{
     this.searchSub.unsubscribe();
   }
 
+  onSearchClose($event: boolean) {
+    this.galleryDataService.setSearchClosed($event);
+  }
 }
