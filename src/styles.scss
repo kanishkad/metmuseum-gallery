@@ -23,7 +23,8 @@ $metMuseum-gallery-theme: mat.define-light-theme((
 @tailwind utilities;
 
 // Angular material overrides
-@import "src/app/shared/ui/search/search-am-overrides";
+@import "app/shared/ui/search/search-am-overrides";
+@import "app/gallery/ui/artefact-card/artefact-card-am-overrides.scss";
 
 @font-face {
   font-family: 'MetSans';
@@ -63,15 +64,20 @@ body {
 }
 
 // Flickity prev next button styling
+.flickity-prev-next-button {
+  bottom: 10px;
+  height: calc(24px + 0.75vw);
+  top: auto;
+  transform: translateY(calc(40px + 0.75vw)) scale(1);
+  transform-origin: center;
+  transition: all .3s;
+  width: calc(24px + 0.75vw);
+}
+
 .flickity-prev-next-button.previous {
-  left: -5px;
+  @apply ml-36;
 }
 
 .flickity-prev-next-button.next {
-  right: -25px;
-}
-
-.flickity-button {
-  background: #fff;
-  cursor: pointer;
+  @apply mr-36;
 }

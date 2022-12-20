@@ -1,0 +1,11 @@
+app-artefact-card {
+  .mat-mdc-card {
+    border-radius: 0;
+    box-shadow: unset;
+
+  }
+
+  .mat-mdc-card-content {
+    padding-left: 0;
+  }
+}
