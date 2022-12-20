@@ -48,7 +48,10 @@ export class CollectionSliderComponent implements OnInit, OnDestroy {
         imagesLoaded: true,
         percentPosition: false,
         contain: true,
-        setGallerySize: false
+        setGallerySize: false,
+        freeScroll: true,
+        pageDots: false,
+        arrowShape: 'M 15,50 L 65,95 L 70,90 L 27,50  L 70,10 L 65,5 Z'
       });
     }
   }

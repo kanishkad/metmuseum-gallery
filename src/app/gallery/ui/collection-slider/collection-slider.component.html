@@ -1,10 +1,10 @@
-<div class="collection-slider-container h-[40rem]">
+<div class="collection-slider-container h-[44rem]">
   <div class="collection-info font-medium mb-8">
     <h1 class="text-3xl">{{department.displayName}}</h1>
     <h5 class="text-md">{{totalArtefacts$ | async}} Artefacts</h5>
   </div>
 
-  <div class="artefact-slider-{{department.departmentId}} pl-5 pr-5">
+  <div class="artefact-slider-{{department.departmentId}} -ml-10 -mr-10">
       <app-artefact-card
         *ngFor="let artefact of artefacts"
         [artefact]="artefact">

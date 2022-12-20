@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../../environments/environment";
-import { map } from "rxjs";
+import { map, Observable } from "rxjs";
+import { DepartmentRes } from "../../interfaces/DepartmentRes";
+import { Department } from "../../interfaces/Department";
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +11,8 @@ import { map } from "rxjs";
 export class DepartmentService {
   constructor(private httpClient: HttpClient) { }
 
-  getDepartments() {
-    return this.httpClient.get(environment.departmentsEndpoint)
-      .pipe(map((res: any) => res.departments.slice(0,environment.departmentsSliceLimit)));
+  getDepartments(): Observable<Department[]> {
+    return this.httpClient.get<DepartmentRes>(environment.departmentsEndpoint)
+      .pipe(map((res: DepartmentRes) => res.departments.slice(0,environment.departmentsSliceLimit)));
   }
 }

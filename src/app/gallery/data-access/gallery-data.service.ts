@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { Artefact } from "../../interfaces/Artefact";
 
 @Injectable({
@@ -8,18 +8,18 @@ import { Artefact } from "../../interfaces/Artefact";
 export class GalleryDataService {
 
   private searchArtefactsSub = new BehaviorSubject<Artefact[]>([]);
-  searchRes$ = this.searchArtefactsSub.asObservable();
+  searchRes$:Observable<Artefact[]> = this.searchArtefactsSub.asObservable();
 
   private searchClosedSub = new BehaviorSubject<boolean>(true);
-  searchClosed$ = this.searchClosedSub.asObservable();
+  searchClosed$: Observable<boolean> = this.searchClosedSub.asObservable();
 
   constructor() { }
 
-  setSearchRes(searchRes: Artefact[]) {
+  setSearchRes(searchRes: Artefact[]): void {
     this.searchArtefactsSub.next(searchRes);
   }
 
-  setSearchClosed(isClosed: boolean) {
+  setSearchClosed(isClosed: boolean): void {
     this.searchClosedSub.next(isClosed);
   }
 }
